@@ -60,3 +60,12 @@ def maximum_camber(c, digit):
     digit: naca digit "1" of four series
     """
     return digit * (1 / 100) * c
+def mean_camber_line_yc(m, p, X):
+    """ mean camber line y-coordinates from x = 0 to x = p
+    m: maximum camber in percentage of the chord
+    p: position of the maximum camber in tenths of chord
+    """
+    return np.array([
+        (m / np.power(p, 2)) * ((2 * p * x) - np.power(x, 2)) if x < p
+        else (m / np.power(1 - p, 2)) * (1 - (2 * p) + (2 * p * x) - np.power(x, 2)) for x in X
+    ])
