@@ -59,4 +59,4 @@ def maximum_camber(c, digit):
     c: chord length
     digit: naca digit "1" of four series
     """
-    return digit * (1 / 100)
+    return digit * (1 / 100) * c
